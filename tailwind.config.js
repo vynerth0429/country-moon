@@ -29,6 +29,11 @@ module.exports = {
         'input': 'hsl(0, 0%, 52%)',
         'input-dark': 'hsl(0, 0%, 52%)',
       },
+      container: {
+        screens: {
+          '2xl': "1280px",
+        }
+      }
     },
   },
   variants: {
