@@ -17,9 +17,10 @@ function CountryBannerView(props: ComponentProps) {
 
   const [url, setUrl] = React.useState('');
 
-  const onBannerClick = () => {
+  const onBannerClick = (event: any) => {
     updateCurrentCountry(props.country);
     history.push(url);
+    event.preventDefault();
   };
 
   React.useEffect(() => {
@@ -31,6 +32,7 @@ function CountryBannerView(props: ComponentProps) {
 
   return (
     <a onClick={onBannerClick}
+      href={url}
       className="hover:opacity-70 cursor-pointer">
       <div className="w-60 mx-auto rounded-md shadow-md bg-elem dark:bg-elem-dark">
         <div className="flex justify-center">

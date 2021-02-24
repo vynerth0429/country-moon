@@ -19,6 +19,7 @@ function DetailPage() {
 
   const onBackClick = React.useCallback(() => {
     history.push(RouteEnum.HOME);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   React.useEffect(() => {
@@ -27,6 +28,7 @@ function DetailPage() {
     } else {
       history.push(RouteEnum.HOME);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
