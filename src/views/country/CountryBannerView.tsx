@@ -46,7 +46,7 @@ function CountryBannerView(props: ComponentProps) {
               Population:
             </span>
             <span>
-              { props.country.population }
+              { props.country.population.toLocaleString() }
             </span>
           </div>
           <div className="text-sm text-item mb-1 space-x-2 dark:text-item-dark">

@@ -31,7 +31,7 @@ function DetailPage() {
 
   return (
     <div className="container mx-auto px-4">
-      <div className="my-20">
+      <div className="my-16">
         <IconButtonComp
           leftIcon={
             <IoArrowBack className="text-item dark:text-item-dark" />
@@ -44,8 +44,8 @@ function DetailPage() {
       {
         currentCountry &&
         <div className="flex justify-between space-x-24">
-          <div className="flex-none">
-            <img className="h-96" src={currentCountry.flag} alt={currentCountry.name} />
+          <div className="flex-none w-1/2">
+            <img className="w-full" src={currentCountry.flag} alt={currentCountry.name} />
           </div>
           <div className="flex-auto flex flex-col justify-center">
             <div className="text-sm text-item mb-6 dark:text-item-dark">
@@ -68,7 +68,7 @@ function DetailPage() {
                     Population:
                   </span>
                   <span>
-                    { currentCountry.population }
+                    { currentCountry.population.toLocaleString() }
                   </span>
                 </div>
                 <div className="text-base text-item space-x-2 dark:text-item-dark">
