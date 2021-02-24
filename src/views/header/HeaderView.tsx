@@ -10,7 +10,7 @@ function HeaderView() {
 
   return (
     <div className="shadow h-16 flex justify-center bg-elem dark:bg-elem-dark">
-      <div className="container h-full flex items-center justify-between">
+      <div className="container h-full flex items-center justify-between px-4">
         <div>
           <span className="text-lg font-bold text-item dark:text-item-dark">
             Where in the world?

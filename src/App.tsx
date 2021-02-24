@@ -1,15 +1,29 @@
 import React from 'react';
-import './App.scss';
+import {
+  BrowserRouter as Router,
+  Switch,
+} from "react-router-dom";
+
 import { StoreProvider } from './contexts/store-context';
+import { routes, RouteWithSubRoutes } from './routes/RouteConfig';
 
 import HeaderView from './views/header/HeaderView';
 
 function App() {
   return (
     <StoreProvider>
-      <div className="h-screen bg-light dark:bg-dark">
-        <HeaderView />
-      </div>
+      <Router>
+        <div className="h-screen flex flex-col bg-light dark:bg-dark">
+          <HeaderView/>
+          <Switch>
+            {routes.map((route, i) => (
+              <div key={i} className="h-full overflow-y-auto">
+                <RouteWithSubRoutes{...route} />
+              </div>
+            ))}
+          </Switch>
+        </div>
+      </Router>
     </StoreProvider>
   );
 }
