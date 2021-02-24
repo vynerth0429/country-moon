@@ -3,6 +3,8 @@ import {
   IoMoonOutline,
 } from "react-icons/io5";
 
+import { RouteEnum } from "../../routes/RouteConfig";
+
 import useStores from "../../hooks/useStores";
 
 function HeaderView() {
@@ -11,11 +13,11 @@ function HeaderView() {
   return (
     <div className="shadow h-16 flex justify-center bg-elem dark:bg-elem-dark">
       <div className="container h-full flex items-center justify-between px-4">
-        <div>
+        <a href={RouteEnum.HOME}>
           <span className="text-lg font-bold text-item dark:text-item-dark">
             Where in the world?
           </span>
-        </div>
+        </a>
         <div className="flex items-center space-x-2 cursor-pointer hover:opacity-80"
           onClick={toggleTheme}>
           {

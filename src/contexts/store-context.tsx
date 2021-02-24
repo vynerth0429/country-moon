@@ -13,13 +13,17 @@ export type TStore = {
   toggleTheme: () => void;
   countries: TCountry[];
   getCountries: () => void;
+  currentCountry: TCountry | null;
+  updateCurrentCountry: (country: TCountry) => void;
+  getCountryDetail: (code: string) => void;
 }
 
 export const storeContext = createContext<TStore | null>(null);
 
 export const StoreProvider = ({ children }: any) => {
   const [theme, setTheme] = React.useState<TTheme>('light');
-  const [countries, setCountries] = React.useState<any[]>([]);
+  const [countries, setCountries] = React.useState<TCountry[]>([]);
+  const [currentCountry, setCurrentCountry] = React.useState<TCountry | null>(null);
 
   const updateTheme = (
     newTheme: TTheme
@@ -71,11 +75,27 @@ export const StoreProvider = ({ children }: any) => {
     }
   }, []);
 
+  const updateCurrentCountry = React.useCallback((country: TCountry) => {
+    setCurrentCountry(country);
+  }, []);
+
+  const getCountryDetail = React.useCallback(async (code: string) => {
+    try {
+      const path = ApiEndpointsEnum.GET_DETAIL_BY_CODE.replace('{code}', code);
+      const country = await API.get<TCountry>(path);
+      setCurrentCountry(country);
+    } catch (error) {
+    }
+  }, []);
+
   const stores = {
     theme,
     toggleTheme,
     countries,
     getCountries,
+    currentCountry,
+    updateCurrentCountry ,
+    getCountryDetail,
   }
 
   return <storeContext.Provider value={stores}>{children}</storeContext.Provider>

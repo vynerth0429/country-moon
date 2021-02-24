@@ -15,13 +15,13 @@ function App() {
       <Router>
         <div className="h-screen flex flex-col bg-light dark:bg-dark">
           <HeaderView/>
-          <Switch>
-            {routes.map((route, i) => (
-              <div key={i} className="h-full overflow-y-auto">
-                <RouteWithSubRoutes{...route} />
-              </div>
-            ))}
-          </Switch>
+          <div className="h-full overflow-y-auto">
+            <Switch>
+              {routes.map((route, i) => (
+                <RouteWithSubRoutes key={i} {...route} />
+              ))}
+            </Switch>
+          </div>
         </div>
       </Router>
     </StoreProvider>

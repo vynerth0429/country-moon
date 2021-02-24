@@ -4,17 +4,24 @@ import {
 } from "react-router-dom";
 
 import {
-  HomePage
+  HomePage,
+  DetailPage,
 } from "../pages";
 
 export enum RouteEnum {
-  HOME = '',
+  HOME = '/',
+  DETAIL = '/:code'
 }
 
 export const routes: RouteProps[] = [
   {
     path: RouteEnum.HOME,
     component: HomePage,
+    exact: true,
+  },
+  {
+    path: RouteEnum.DETAIL,
+    component: DetailPage,
     exact: true,
   },
 ];
