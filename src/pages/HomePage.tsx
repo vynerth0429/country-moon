@@ -24,6 +24,7 @@ function HomePage() {
 
   React.useEffect(() => {
     getCountries();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

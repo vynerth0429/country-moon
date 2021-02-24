@@ -21,7 +21,7 @@ export const StoreProvider = ({ children }: any) => {
   const [theme, setTheme] = React.useState<TTheme>('light');
   const [countries, setCountries] = React.useState<any[]>([]);
 
-  const updateTheme = React.useCallback((
+  const updateTheme = (
     newTheme: TTheme
   ) => {
     setTheme(newTheme);
@@ -32,7 +32,7 @@ export const StoreProvider = ({ children }: any) => {
     } else {
       document.documentElement.classList.remove('dark');
     }
-  }, []);
+  };
 
   React.useEffect(() => {
     let currentTheme = localStorage.getItem(kStorageTheme) as TTheme;

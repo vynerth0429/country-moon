@@ -8,10 +8,10 @@ interface ComponentProps {
 
 function CountryBannerView(props: ComponentProps) {
   return (
-    <a href="" className="hover:opacity-70 cursor-pointer">
+    <a href="/" className="hover:opacity-70 cursor-pointer">
       <div className="w-60 mx-auto rounded-md shadow-md bg-elem dark:bg-elem-dark">
         <div className="flex justify-center">
-          <img className="h-40" src={props.country.flag} />
+          <img className="h-40" src={props.country.flag} alt={props.country.name} />
         </div>
 
         <div className="p-6">
