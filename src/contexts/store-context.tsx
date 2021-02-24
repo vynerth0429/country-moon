@@ -1,17 +1,25 @@
 import React, { createContext } from "react";
 
+import { API } from "../api";
+import { ApiEndpointsEnum } from "../api/endpoints";
+
+import { TCountry } from "../types/countryTypes";
+
 const kStorageTheme = 'theme';
 
 export type TTheme = 'light' | 'dark';
 export type TStore = {
   theme: TTheme;
   toggleTheme: () => void;
+  countries: TCountry[];
+  getCountries: () => void;
 }
 
 export const storeContext = createContext<TStore | null>(null);
 
 export const StoreProvider = ({ children }: any) => {
   const [theme, setTheme] = React.useState<TTheme>('light');
+  const [countries, setCountries] = React.useState<any[]>([]);
 
   const updateTheme = React.useCallback((
     newTheme: TTheme
@@ -36,15 +44,7 @@ export const StoreProvider = ({ children }: any) => {
     }
 
     updateTheme(currentTheme || 'light');
-    prepareEvent();
   }, []);
-
-  const prepareEvent = () => {
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-      const currentTheme = e.matches ? "dark" : "light";
-      updateTheme(currentTheme || 'light');
-    });
-  }
 
   const toggleTheme = React.useCallback(() => {
     let currentTheme = localStorage.getItem(kStorageTheme) as TTheme;
@@ -62,9 +62,20 @@ export const StoreProvider = ({ children }: any) => {
     updateTheme(currentTheme || 'light');
   }, []);
 
+  const getCountries = React.useCallback(async () => {
+    try {
+      const countries = await API.get<TCountry[]>(ApiEndpointsEnum.GET_ALL);
+      setCountries(countries);
+    } catch (error) {
+
+    }
+  }, []);
+
   const stores = {
     theme,
     toggleTheme,
+    countries,
+    getCountries,
   }
 
   return <storeContext.Provider value={stores}>{children}</storeContext.Provider>
