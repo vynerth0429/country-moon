@@ -45,8 +45,8 @@ function DetailPage() {
 
       {
         currentCountry &&
-        <div className="flex justify-between space-x-24">
-          <div className="flex-none w-1/2">
+        <div className="flex flex-col space-y-12 md:justify-between lg:flex-row lg:space-x-24 lg:space-y-0">
+          <div className="flex-none w-full md:w-1/2">
             <img className="w-full" src={currentCountry.flag} alt={currentCountry.name} />
           </div>
           <div className="flex-auto flex flex-col justify-center">
@@ -55,8 +55,8 @@ function DetailPage() {
               { currentCountry.name }
               </span>
             </div>
-            <div className="flex justify-between">
-              <div className="w-1/2 space-y-2">
+            <div className="flex flex-col space-y-12 md:justify-between md:flex-row md:space-y-0">
+              <div className="w-full md:w-1/2 space-y-2">
                 <div className="text-base text-item space-x-2 dark:text-item-dark">
                   <span className="font-semibold">
                     Native Name:
@@ -99,7 +99,7 @@ function DetailPage() {
                 </div>
               </div>
 
-              <div className="w-1/2 space-y-2">
+              <div className="w-full md:w-1/2 space-y-2">
                 <div className="text-base text-item space-x-2 dark:text-item-dark">
                   <span className="font-semibold">
                     Top Level Domain:
@@ -134,7 +134,7 @@ function DetailPage() {
                 </div>
               </div>
             </div>
-            <div className="flex items-start text-base text-item space-x-2 mt-16 dark:text-item-dark">
+            <div className="mt-12 text-base text-item flex items-start flex-col space-y-4 md:flex-row md:space-x-2 md:space-y-0 dark:text-item-dark">
               <span className="mt-1 flex-none font-semibold">
                 Border Countries:
               </span>
