@@ -30,11 +30,11 @@ function HomePage() {
   return (
     <>
       <div className="flex flex-col items-center">
-        <div className="container w-full px-4 mt-16 mb-16 flex justify-between items-center">
-          <div className="w-2/5">
+        <div className="container w-full px-4 mt-16 mb-16 flex flex-col space-y-8 md:justify-between md:items-center md:flex-row md:space-y-0">
+          <div className="w-full md:w-2/5">
             <SearchInputComp onChange={onFilterNameChange}/>
           </div>
-          <div>
+          <div className="w-48">
             <DropdownComp onChange={onFilterRegionChange}/>
           </div>
         </div>

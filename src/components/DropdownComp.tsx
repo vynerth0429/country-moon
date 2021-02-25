@@ -31,7 +31,7 @@ function DropdownComp(props: ComponentProps) {
 
   return (
     <div className="relative shadow-sm rounded-md h-12 w-full">
-      <div className="h-full flex items-center px-6 space-x-6 bg-elem dark:bg-elem-dark cursor-pointer hover:opacity-80"
+      <div className="h-full flex items-center justify-between px-6 space-x-6 bg-elem dark:bg-elem-dark cursor-pointer hover:opacity-80"
         onClick={toggleShowItems}>
         <span className="text-sm text-item dark:text-item-dark">
           { region || 'Filter by Region' }
