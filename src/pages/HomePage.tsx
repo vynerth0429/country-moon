@@ -46,7 +46,7 @@ function HomePage() {
                     && country.region.toLowerCase().includes(filterRegion.toLowerCase());
               })
               .map((country, i) => (
-                <CountryBannerView key={i} country={country}/>
+                <CountryBannerView key={country.alpha2Code} country={country}/>
               ))
               .value()
           }
