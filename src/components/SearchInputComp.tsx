@@ -15,6 +15,8 @@ function SearchInputComp(props: ComponentProps) {
       <input
         type="text"
         placeholder="Search for a country"
+        aria-label="Search country"
+        title="Search country"
         className="h-full w-full text-sm font-semibold text-item dark:text-item-dark bg-elem dark:bg-elem-dark focus:outline-none"
         onChange={(event) => {
           props.onChange(event.target.value)
